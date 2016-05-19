@@ -5,24 +5,24 @@
  */
 package proyectofacebook;
 
-import facebook4j.Facebook;
 import facebook4j.FacebookException;
-import facebook4j.FacebookFactory;
+import java.net.MalformedURLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 
 /**
  *
  * @author usuario
  */
 public class Menu extends javax.swing.JFrame {
-
+    MetodosFacebook face = new MetodosFacebook();
     /**
      * Creates new form Menu
      */
     public Menu() {
         initComponents();
+        face.inicio();
+        
     }
 
     /**
@@ -35,30 +35,53 @@ public class Menu extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        Comentario = new javax.swing.JButton();
+        DarLike = new javax.swing.JButton();
+        PostImagen = new javax.swing.JButton();
+        PublicarEstado = new javax.swing.JButton();
+        ComentarFoto = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton2.setText("Comentario");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jPanel1.setBackground(new java.awt.Color(153, 153, 255));
+
+        Comentario.setBackground(new java.awt.Color(0, 153, 255));
+        Comentario.setText("Comentario");
+        Comentario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                ComentarioActionPerformed(evt);
             }
         });
 
-        jButton1.setText("Like");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        DarLike.setBackground(new java.awt.Color(0, 153, 255));
+        DarLike.setText("Like");
+        DarLike.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                DarLikeActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Post con Imagen");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        PostImagen.setBackground(new java.awt.Color(0, 153, 255));
+        PostImagen.setText("Post con Imagen");
+        PostImagen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                PostImagenActionPerformed(evt);
+            }
+        });
+
+        PublicarEstado.setBackground(new java.awt.Color(0, 153, 255));
+        PublicarEstado.setText("Estado");
+        PublicarEstado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PublicarEstadoActionPerformed(evt);
+            }
+        });
+
+        ComentarFoto.setBackground(new java.awt.Color(0, 153, 255));
+        ComentarFoto.setText("Comentar Foto");
+        ComentarFoto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComentarFotoActionPerformed(evt);
             }
         });
 
@@ -67,23 +90,31 @@ public class Menu extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addComponent(jButton2)
-                .addGap(43, 43, 43)
-                .addComponent(jButton1)
-                .addGap(42, 42, 42)
-                .addComponent(jButton3)
-                .addContainerGap(115, Short.MAX_VALUE))
+                .addGap(60, 60, 60)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(PublicarEstado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Comentario, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(PostImagen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ComentarFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DarLike, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(84, 84, 84))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(38, 38, 38)
+                .addGap(60, 60, 60)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton1)
-                    .addComponent(jButton3))
-                .addContainerGap(332, Short.MAX_VALUE))
+                    .addComponent(Comentario, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DarLike, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(45, 45, 45)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(PostImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PublicarEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(54, 54, 54)
+                .addComponent(ComentarFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(85, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -100,32 +131,48 @@ public class Menu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        FacebookFactory ff = new FacebookFactory();
-        Facebook facebook = ff.getInstance();
+    private void ComentarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComentarioActionPerformed
         try {
-            facebook.commentPost(JOptionPane.showInputDialog("Introduce la ID del post que quieres comentar:"), JOptionPane.showInputDialog("Escribe un comentario:"));
+            face.comentar();
         } catch (FacebookException ex) {
             Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_ComentarioActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        FacebookFactory ff = new FacebookFactory();
-        Facebook facebook = ff.getInstance();
+    private void DarLikeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DarLikeActionPerformed
         try {
-            facebook.likePost(JOptionPane.showInputDialog("Introduce la ID del post que te gusta:"));
+            face.darLike();
         } catch (FacebookException ex) {
             Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_DarLikeActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        FacebookFactory ff = new FacebookFactory();
-        Facebook facebook = ff.getInstance();
-        //facebook.postPhoto("");
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void PostImagenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PostImagenActionPerformed
+        try {
+            face.publicarFoto();
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (FacebookException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_PostImagenActionPerformed
+
+    private void PublicarEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PublicarEstadoActionPerformed
+        try {
+            face.estado();
+        } catch (FacebookException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_PublicarEstadoActionPerformed
+
+    private void ComentarFotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComentarFotoActionPerformed
+        try {
+            face.comentarFoto();
+        } catch (FacebookException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_ComentarFotoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -163,9 +210,11 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton ComentarFoto;
+    private javax.swing.JButton Comentario;
+    private javax.swing.JButton DarLike;
+    private javax.swing.JButton PostImagen;
+    private javax.swing.JButton PublicarEstado;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
