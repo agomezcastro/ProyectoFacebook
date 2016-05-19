@@ -5,10 +5,12 @@
  */
 package proyectofacebook;
 
+import facebook4j.Event;
 import facebook4j.Facebook;
 import facebook4j.FacebookException;
 import facebook4j.FacebookFactory;
 import facebook4j.PostUpdate;
+import facebook4j.ResponseList;
 import facebook4j.conf.ConfigurationBuilder;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -50,13 +52,14 @@ public class MetodosFacebook {
     }
     
     public void publicarFoto() throws MalformedURLException, FacebookException{
-        PostUpdate post = new PostUpdate(new URL(""))
-                .picture(new URL(""))
-                .description("");
+        PostUpdate post = new PostUpdate(new URL("http://www.capilda.com"))
+                .picture(new URL("http://www.capilda.com/tag/frutas/"))
+                .description("frutas");
         facebook.postFeed(post);
     }
     
-//    public void buscarTemas(){
-//        faceboo
-//    }
+    public void buscarTemas() throws FacebookException{
+        ResponseList<Event> results = facebook.searchEvents(JOptionPane.showInputDialog(""));
+        results.add(null);
+    }
 }

@@ -47,7 +47,8 @@
                   <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="PublicarEstado" max="32767" attributes="0"/>
-                      <Component id="Comentario" pref="157" max="32767" attributes="0"/>
+                      <Component id="Comentario" max="32767" attributes="0"/>
+                      <Component id="jButton1" pref="157" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace pref="122" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -73,7 +74,10 @@
                       <Component id="PublicarEstado" alignment="3" min="-2" pref="72" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
-                  <Component id="ComentarFoto" min="-2" pref="72" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="ComentarFoto" pref="72" max="32767" attributes="0"/>
+                      <Component id="jButton1" max="32767" attributes="0"/>
+                  </Group>
                   <EmptySpace pref="85" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -133,6 +137,14 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ComentarFotoActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="jButton1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Buscar Temas"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
