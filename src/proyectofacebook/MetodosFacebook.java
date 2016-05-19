@@ -52,9 +52,9 @@ public class MetodosFacebook {
     }
     
     public void publicarFoto() throws MalformedURLException, FacebookException{
-        PostUpdate post = new PostUpdate(new URL("http://www.capilda.com"))
-                .picture(new URL("http://www.capilda.com/tag/frutas/"))
-                .description("frutas");
+        PostUpdate post = new PostUpdate(new URL("http://motor.as.com/motor/2016/05/18/motociclismo/1463593379_244334.html"))
+                .picture(new URL("http://as01.epimg.net/motor/imagenes/2016/05/18/motociclismo/1463593379_244334_1463593942_noticia_normal.jpg"))
+                .description("noticia de motos");
         facebook.postFeed(post);
     }
     
