@@ -29,9 +29,9 @@ public class MetodosFacebook {
     public Facebook inicio(){
         ConfigurationBuilder cb = new ConfigurationBuilder();
         cb.setDebugEnabled(true)
-                .setOAuthAppId("1993686774190575")
-                .setOAuthAppSecret("5e01f656c682cbd1bc6facbbb165b8ed")
-                .setOAuthAccessToken("EAACEdEose0cBAKT7WG4VfvvvnZCMJhv2LOWl1hfFy8TToP1qOBLOmKzt2GZBRyIGxxwO6ZCZBQsS9aiGBQziyE1Tg7NMy2XUjZBm2ZABKlqVZCkLPR5cQvalPbGyhTQ4XZBnkrOqVQZB5xWdVd9xnIRN3VJTg9HA6LA1x7ye965vlGZBatun8aZAji0");
+                .setOAuthAppId("")
+                .setOAuthAppSecret("")
+                .setOAuthAccessToken("");
                 
         FacebookFactory ff = new FacebookFactory(cb.build());
         facebook = ff.getInstance();
