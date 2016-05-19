@@ -22,7 +22,10 @@ import javax.swing.JOptionPane;
  */
 public class MetodosFacebook {
     public Facebook facebook;
-    
+    /**
+     * inicia Facebook
+     * @return 
+     */
     public Facebook inicio(){
         ConfigurationBuilder cb = new ConfigurationBuilder();
         cb.setDebugEnabled(true)
@@ -35,22 +38,40 @@ public class MetodosFacebook {
         return facebook;
             
     }        
+    /**
+     * Publica un estado que escribas
+     * @throws FacebookException 
+     */
     public void estado() throws FacebookException{
             facebook.postStatusMessage(JOptionPane.showInputDialog("Introduce el estado"));
     }
-    
+    /**
+     * Da me gusta a un post que elijas, seleccionas los números del enlace da la URL
+     * @throws FacebookException 
+     */
     public void darLike() throws FacebookException{
         facebook.likePost(JOptionPane.showInputDialog("Introduce la ID del post que te gusta:"));
     }
     
+    /**
+     * Comenta un post que elijas, seleccionas los numeros del enlace de la URL
+     * @throws FacebookException 
+     */
     public void comentar() throws FacebookException{
         facebook.commentPost(JOptionPane.showInputDialog("Introduce la ID del post que quieres comentar:"), JOptionPane.showInputDialog("Escribe un comentario:"));
     }
-    
+    /**
+     * Comenta una foto del post que elijas, seleccionas los numeros del enlace de la URL
+     * @throws FacebookException 
+     */
     public void comentarFoto() throws FacebookException{
         facebook.commentPhoto(JOptionPane.showInputDialog("ID de la foto"), JOptionPane.showInputDialog("Comentario de la foto:"));
     }
-    
+    /**
+     * publica una imagen
+     * @throws MalformedURLException
+     * @throws FacebookException 
+     */
     public void publicarFoto() throws MalformedURLException, FacebookException{
         PostUpdate post = new PostUpdate(new URL("http://motor.as.com/motor/2016/05/18/motociclismo/1463593379_244334.html"))
                 .picture(new URL("http://as01.epimg.net/motor/imagenes/2016/05/18/motociclismo/1463593379_244334_1463593942_noticia_normal.jpg"))
